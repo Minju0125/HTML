@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css.style.css">
+<style>
+label{
+display : inline-block;
+width: 70px;
+}
+
+textarea {
+vertical-align: top;
+}
+
+p{
+
+width : 300px;
+padding : 20px;
+border : 2px solid blue;}
+
+h3{
+width : 340px;
+text-align: center;
+margin-bottom: 70px;}
+
+</style>
+</head>
+<body>
+
+<h3>회원가입 화면</h3>
+<form action = "회원가입.jsp" method = "post">
+<p>
+<label>이름</label><input type = "text" name="name" required = "required"><br>
+<label>주소</label><input type = "text" name="address" required = "required"><br>
+<label>이메일</label><input type = "email" name="email"><br>
+<label>성별</label> 
+<input type = "radio" name = "gender"> Male
+<input type = "radio" name = "gender"> Female<br>
+<label class = "area">내용 </label> <textarea rows=5 cols="25" name = "area"> </textarea><br><br>
+<input type = "submit">
+<input type = "reset">
+</p>
+
+</form>
+
+
+</body>
+</html>

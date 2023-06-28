@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+table{
+border : 2px solid blue;
+margin : 20px;
+text-align: center;
+}
+
+td{
+width: 250px;
+height: 40px;}
+
+#tab2 td:nth-child(2n-1){
+background: teal;
+}
+#tab2 td:nth-child(2n){
+background: lightgrey;
+}
+
+.tt{
+background: gold;
+}
+
+#tab1 tr:nth-child(2n){
+background: green;
+}
+
+</style>
+
+</head>
+<body>
+<pre>
+	구조(관계)를 나타내는 의사클래스 선택자
+	:first-child
+	:last-child
+	:nth-child(ex) -2n odd, even 2n-1 3n 2n+1 3n+1 4n
+</pre>
+
+<table border = "1" id="tab1">
+	<tr class = "tt">
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr class = "tt">
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+</table>
+
+<table border = "1" id="tab2">
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+</table>
+
+</body>
+</html>

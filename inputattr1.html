@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action = "inputattr1.jsp" method = "post">
+	<!-- 	(읽기전용) readonly는 고정되어 있어서 수정할 수 없는 값 -->
+	<input type = "text" name = "id" value = "readonly" readonly = "readonly"> <br>
+	<input title = "홍길동" pattern = "[가-힣]{2,5}" type = "text" name = "name" required = "required" placeholder = "이름입력"> <br>
+	<input type = "password" name = "pass" required = "required" placeholder = "비밀번호입력"> <br>
+	<input title = "kkk123@korea.com" type = "text" name = "email" placeholder = "이메일입력">	 <br>
+	<input type = "text" pattern = "[0-9]{3}-[0-9]{3,4}-[0-9]{4}" name = "tel" placeholder = "전화번호 입력" value= "01012344567" title = "tilte 속성">
+														<!-- 	disabled 쓰면 사용불가능하게 됨 -> value 값 있어야함 -->
+	<br>
+		<input type = "submit">
+</form>
+</body>
+</html>
