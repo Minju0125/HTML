@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<meta charset="UTF-8">
+<title>my blog page</title>
+<style>
+    html,body{
+        border: 1px soild blue;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    
+    body *{
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin: 1px;
+        padding: 1px;
+      
+    }
+    #container{
+         display: flex;
+        flex-direction: column;
+    }
+    #items{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    header {
+        background: yellow;
+          width: 100%;
+         height: 150px;
+    }
+    footer{
+        background: purple;
+        width: 100%;
+        height: 60px;
+    }
+    
+    aside{
+        flex: 40%;
+        height: 500px;
+        background: gold;
+    }
+    section{
+        flex: 40%;
+        height: 500px;
+        background: teal;
+    }
+    
+  
+</style>
+</head>
+<body>
+	<div id = "container">
+		<header></header>
+		<div id="itmes"></div>
+			<aside></aside>
+			<section></section>
+	</div>
+	
+	<footer></footer>
+
+</body>
+</html>

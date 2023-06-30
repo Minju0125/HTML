@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    html, body{
+        margin: 0px;
+        padding: 0px;
+    }  
+    
+    header,footer,aside, section{
+        border-radius: 20px;
+        /*body * {에 background 설정해도 됨*/
+    }
+    
+    body *{
+         box-sizing: border-box;
+        margin: 1px;
+        padding: 1px;
+    }
+    
+    #container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #items{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    header, footer{
+        width: 100%;
+        height: 100px;
+        
+    }
+    header{
+        background: teal;
+    }
+    footer{
+        background: cyan;
+    }
+    aside{
+        flex: 20%;
+        height: 500px;
+        background: gold;
+    }
+    section{
+        flex : 60%;
+        height: 500px;
+        background: orange;
+    }
+    h2{
+        margin: 20px;
+    }
+    
+    
+</style>
+</head>
+<body>
+<div id = "container">
+	<header>
+	</header>
+	<div id = "items">
+		<aside></aside>
+		<section><h2>여기는 본문입니다.</h2></section>
+		<aside></aside>
+	</div>
+    
+    <footer></footer>
+</div>
+
+</body>
+</html>

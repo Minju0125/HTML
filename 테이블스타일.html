@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	border : 1px solid blue;
+	border-collapse : collapse;
+	margin : 20px auto; 			/* margin auto 이면 좌우대칭 ! */
+	empty-cells: hide;
+	background-image: linear-gradient(pink, white);
+}
+
+/*th는 자동으로 가운데 정렬, bold 적용되어있음*/
+th{
+height: 50px;
+font-size: 1.5rem;
+
+}
+
+td{
+	width: 300px;
+	height: 40px;
+	text-align: center;
+	background-image: linear-gradient(skyblue, white);
+}
+
+caption{
+/*border : 1px dotted green;*/ /*작업할때 보기 편하게 임시로 설정*/
+	margin : 10px;
+	font-size : 1.5rem;
+	padding : 10px;
+	caption-side : bottom;				/* 테이블 제목이 테이블 아래로 들어옴 */
+}
+
+table:nth-child(2){
+	/* table : last-child */
+	border : 10px groove green;
+	border-collapse : separate;  /* 	separate 있을때만 데이터가 없는 칸에서 hide 가 적용됨 ! */
+
+}
+</style>
+</head>
+<body>
+<table border ="1">
+	<caption>고객리스트</caption>  <!-- 	테이블제목 -->
+	<tr>
+		<th>제목1</th>
+		<th>제목2</th>
+		<th>제목3</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td></td>
+	</tr>
+</table>
+
+<table border ="1">
+	<caption>고객리스트</caption>  <!-- 	테이블제목 -->
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td></td>
+	</tr>
+	
+</table>
+</body>
+</html>
