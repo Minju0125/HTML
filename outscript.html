@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부스크립트로 별도로 저장 -->
+<!-- 실행은 똑같은데 위치가 내부 또는 외부 -->
+<script src = "../js/myscript.js"></script>
+
+<style>
+div {
+	border: 1px dotted red;
+	margin: 20px;
+	padding: 20px;
+	width: 30%;
+	height: 50px;
+}
+</style>
+
+</head>
+<body>
+	수량 :
+	<input type="text" id="qty"> 가격 :
+	<input type="text" id="price">
+	<input type="button" value="확인" onclick="calc()">
+	<br>
+	<br>
+	<p>script에서 실행된 결과값을 출력</p>
+	<div id="result"></div>
+</body>
+</html>

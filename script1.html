@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+border : 1px dotted red;
+margin : 20px;
+padding : 20px;
+width: 30%;
+height: 50px;
+}
+</style>
+<script>
+
+var a = 10;
+var b = 20;
+var c = a*b;
+document.write(c);
+
+// var는 지역변수 / 함수 한개밖에 없어서 지역변수든 지역변수든 상관없음
+// let은 같은 이름 있으면 안됨
+
+
+function calc(){
+	//입력한 값 가져오기
+	var vqty = document.getElementById('qty').value;
+	var vprice = document.getElementById('price').value;
+	
+	var res = vqty * vprice;
+	
+	var str = "수량 : " + vqty + "<br>"; //const는 값을 변경할 수 없기 때문에 쓸 수 없음.-작성시에는 오류나지 않지만 실행했을 때 오류발생
+	str += "가격 : " + vprice + "<br>";
+	str += "총금액 : " + res + "<br>";
+	
+	//document.write(str);
+	console.log(str);
+	
+	var vresult = document.getElementById('result');
+	
+	vresult.innerHTML= str;
+	//vresult.innerText = str;	//이렇게 하면 <br> 태그까지 찍힘
+	
+}
+</script>
+</head>
+<body>
+수량 : <input type ="text" id="qty">
+가격 : <input type ="text" id="price">
+<input type ="button" value="확인" onclick = "calc()">
+<br>
+<br>
+<p>script에서 실행된 결과값을 출력</p>
+<div id="result">
+
+</div>
+
+</body>
+</html>

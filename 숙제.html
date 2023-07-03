@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#container {
+	border: 2px solid blue;
+	width: 100%;
+	min-width: 900px;
+	min-height: 700px;
+}
+
+#container * {
+	border-radius: 20px;
+}
+
+header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 150px;
+	background: yellowgreen;
+	margin-bottom: 10px;
+}
+
+#items {
+	display: flex;
+	flex-direction: row;
+	height: 500px
+}
+
+#left {
+	flex-basis: 20%;
+	padding-left: 10px;
+	background: rgb(166, 232, 185);
+}
+
+figure {
+	display: flex;
+	margin-left: 30px;
+	margin-right: 30px;
+	flex-direction: column;
+}
+
+a:link {
+	color: white;
+}
+
+a:visited {
+	color: yellow;
+}
+
+a:hover {
+	color: red;
+}
+
+img {
+	width: 200px;
+	height: auto;
+}
+
+figcaption {
+	display: block;
+	text-align: center;
+}
+
+#right {
+	flex-basis: 80%;
+	margin-left: 13px;
+	padding: 10px;
+	background: rgb(214, 188, 225);
+	opacity: 0.65;
+}
+
+section {
+	background: pink;
+	border: 2px dotted rgb(169, 166, 166);
+	padding: 5px;
+}
+
+#upper {
+	margin-bottom: 5px;
+	height: 220px;
+}
+
+#lower {
+	height: 220px;
+}
+
+footer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: grey;
+	height: 80px;
+	margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h2>My Blog Page</h2>
+			<p>시멘틱 태그로 이루어진 페이지입니다.</p>
+		</header>
+
+		<div id="items">
+			<article id="left">
+				<h3>Links</h3>
+				<ul>
+					<li><a href="https://www.w3schools.com/">w3cshools</a></li>
+					<li><a href="https://www.naver.com">Naver</a></li>
+					<li><a href="https://www.daum.net">Daum</a></li>
+				</ul>
+				<figure>
+					<img src="../images/엘리멘탈.jpg" alt="엘리멘탈.jpg">
+					<figcaption>엘리멘탈</figcaption>
+				</figure>
+			</article>
+
+			<article id="right">
+				<section id="upper">
+					<h4>엘리멘탈</h4>
+					<p>불, 물, 공기, 흙 4개의 원소들이 살고 있는 ‘엘리멘트 시티’ 재치 있고 불처럼 열정 넘치는 ‘앰버'는
+						어느 날 우연히 유쾌하고 감성적이며 물 흐르듯 사는 '웨이드'를 만나 특별한 우정을 쌓으며, 지금껏 믿어온 모든 것들이
+						흔들리는 새로운 경험을 하게 되는데... 웰컴 투 ‘엘리멘트 시티’!</p>
+				</section>
+				<section id="lower">
+					<h4>스파이더맨 어크로스 더 유니버스</h4>
+					<p>스파이더맨 VS 스파이더맨?! 여러 성장통을 겪으며 새로운 스파이더맨이 된 ‘마일스 모랄레스’. 그 앞에
+						다른 평행세계의 스파이더우먼 ‘그웬’이 다시 나타난다. 모든 차원의 멀티버스 속 스파이더맨들을 만나게 되지만, 질서에
+						대한 신념이 부딪히며 예상치 못한 균열이 생기는데… 상상 그 이상을 넘어서는 멀티버스의 세계가 열린다!</p>
+				</section>
+
+			</article>
+		</div>
+
+		<footer>
+			<h4>Copyright</h4>
+		</footer>
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>

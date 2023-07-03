@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function add(a, b) {
+		let res = a + b;
+		return res;
+		// 	res = a+b;라고 쓴 경우 res는 전역변수이기 때문에 다른 함수에서도 사용가능한다.
+		//  let 으로 지역변수로 사용한 경우에는 return 값이 필요함
+	}
+	function sub(a, b) {
+		let res = a - b; //지역변수
+		return res;
+	}
+	window.onload = function() { //윈도우에는 onload라는 이벤트가 존재함
+		// 화면에 보이면 수행해라. 화면에 보인다는 것은 바디에 result가 만들어졌다는것
+		// onload 되자마자 실행하라는 명령
+		//id = result인 div요소를 검색하려고 한다.
+
+		let vres = document.getElementById('result');
+		vres.innerHTML = "<h1>Hello</h1>";
+		vres.style.color = 'red';
+
+		let a = 10;
+		let b = 20;
+		// 매개변수는 무조건 지역변수
+		// a=10;
+		// b=20; 이렇게 쓰면 전역변수 -> 다른 함수에서도 쓸 수 있음
+
+		/*res = add(a,b);
+		 str = a + "+" + b + "=" + res + "<br>";
+
+		 res = sub(a,b);
+		 str += a + "-" + b + "=" + res + "<br>"; */
+
+		//아래처럼 할 수도 있음 !
+// 		str += a + "+" + b + "=" + add(a, b) + "<br>";
+// 		str += a + "-" + b + "=" + sub(a, b) + "<br>";
+		
+		//변수와 문자열을 이어서 쓰는 백틱?
+		str = `${a} + ${b} = ${add(a,b)}<br>`;
+		str = `${a} - ${b} = ${sub(a,b)}<br>`;
+		
+		vres.innerHTML += str;
+		
+	}
+</script>
+<style>
+#result {
+	border: 1px dotted red;
+	width: 50%;
+	height: 200px;
+	margin: 20px;
+	padding: 20px;
+	overflow: auto; /* 넘치면 스크롤바 생성 */
+}
+</style>
+</head>
+
+<body>
+
+<pre>
+템플릿 리터럴 : 백틱을 사용하는 문자열
+변수와 일반 문자열을 +, "" 기호 없이 한문장으로 표현한다.
+변수는 ${변수}로 표현한다.
+
+예를 들면 
+
+str = `${a} + ${b} = ${add(a,b)}&lt;br>`;
+str = `${a} - ${b} = ${sub(a,b)}&lt;br>`;
+이렇게 표현함
+
+</pre>
+
+
+	<!-- 	<input type="button" value="확인" onclick = ""> -->
+	<!-- onclick은 클릭해야만 수행 -->
+
+	<div id="result"></div>
+
+
+</body>
+</html>
