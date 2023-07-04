@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	border: 1px dotted orange;
+	height: auto;
+	/* 	내용의 길이만큼 늘어남 */
+	padding: 10px;
+	margin: 10px;
+	font-size: 1.5rem;
+}
+</style>
+<script>
+	// 	function proc1() {} 이렇게도 쓰지만 아래처럼 쓰기도 함
+
+	proc1 = function() {
+
+		//숫자 1입력
+		su1 = parseInt(prompt("숫자1 입력"));
+
+		//연산자 입력
+		op = prompt("연산자입력");
+
+		//숫자2 입력
+		su2 = parseInt(prompt("숫자2 입력"));
+
+		//연산자 비교
+
+		switch (op) {
+		case "+":
+			res = su1 + su2;
+			break;
+		case "-":
+			res = su1 - su2;
+			break;
+		case "/":
+			res = su1 / su2;
+			res = res.toFixed(2);
+			break;
+		case "*":
+			res = su1 * su2;
+			break;
+		}
+
+		// 	if(op == "+"){
+		// 		res = su1 + su2;
+		// 	}else if(op == "-"){
+		// 		res = su1 - su2;
+		// 	}else if(op == "/"){
+		// 		res = su1 / su2;
+		// 	}else if(op == "*"){
+		// 		res = su1 * su2;	
+		// 	}
+
+		//출력 내용 구성  56-34 = 22
+		result = `${su1} ${op} ${su2} = ${res}`; //소수점 이하 두자리로 고정
+
+		//출력 - id = result 인 요소를 검색 (innerHTML이나 innerText 사용)
+		document.getElementById('result1').style.border = "2px dotted blue";
+		document.getElementById('result1').innerHTML = result;
+		document.getElementById('result1').style.fontSize = "10px";
+
+	}
+
+	proc2 = function() {
+		//점수입력
+
+		score = parseInt(prompt("점수입력"));
+		// 		스크립트에서는 parseInt 안해도됨 (숫자를 가지고 더하기 할때만 변환해야함)
+
+		//점수비교 (if문 또는 switch-case문 사용)
+
+		//정상인 값 비교 (0이상100미만)
+		if (score > 100 || score < 0) {
+			alert("값이 범위를 벗어났습니다.");
+			return false; //강제종료
+			// return 타입이 없음 ! -> false로 리턴한 것은 논리적인 의미ㄴ
+
+		}
+
+		// 		if (score >= 90) { //90이상 A
+		// 			res = "A학점";
+		// 		} else if (score >= 80) { //80이상~90미만 B
+		// 			res = "B학점";
+		// 		} else if (score >= 70) { //70이상~80미만 C
+		// 			res = "C학점";
+		// 		} else if (score >= 60) {//60이상 ~70미만 D
+		// 			res = "D학점";
+		// 		} else { //60미만 E
+		// 			res = "F학점";
+		// 		}
+
+		score1 = score / 10;
+		switch (score1) {
+		case 10:
+			res = "A학점";
+			break;
+		case 9:
+			res = "A학점";
+			break;
+		case 8:
+			res = "B학점";
+			break;
+		case 7:
+			res = "C학점";
+			break;
+		case 6:
+			res = "D학점";
+			break;
+		default:
+			res = "F학점";
+		}
+
+		// 출력내용 점수 : 99 결과 : A학점
+		str = `점수 : ${score} <br> 결과 : ${res}`;
+
+		//출력
+		document.getElementById('result2').innerHTML = str;
+		document.getElementById('result2').style.background = "gold";
+
+	}
+
+	proc3 = function() {
+		user1 = prompt("첫번째 사람의 가위 바위 보를 입력하세요");
+		user2 = prompt("두번째 사람의 가위 바위 보를 입력하세요");
+
+		//비교
+		if (user1 == user2) {
+			res = "비겼습니다.";
+		} else if (user1 == "가위" && user2 == "보" || user1 == "바위"
+				&& user2 == "가위" || user1 == "보" && user2 == "바위") {
+			res = "첫번째 사람 승리  !!!";
+		} else {
+			res = "두번째 사람 승리  !!!";
+		}
+
+		str = `첫번째 사람 : ${user1} <br> 두번째 사람 : ${user2} <br><br>`;
+		str += `결 과 : ${res}`;
+
+		document.getElementById('result3').innerHTML = str;
+
+	}
+
+	proc4 = function() {
+		document.write("<h1>구구단표</h1>");
+		document.write("<table id='myTable'>");
+		for (var i = 1; i <= 9; i++) {
+			document.write("<tr>");
+			document.write("<td id='cell'>" + i + "</td>");
+			for (var j = 2; j <= 9; j++) {
+				document.write("<td id='cell'>" + i * j + "</td>");
+			}
+			document.write("</tr>");
+
+		}
+		document.write("</table>");
+		document.getElementById('myTable').style.border = "1px solid black";
+		document.getElementById('myTable').style.width = "400px";
+		var cells = document.querySelectorAll('#cell');
+		for (var i = 0; i < cells.length; i++) {
+
+			cells[i].style.border = "1px solid black";
+			cells[i].style.padding = "5px";
+			cells[i].style.textAlign = "center";
+		}
+	}
+</script>
+
+</head>
+
+<body>
+	<h3>숫자 2개와 연산자 1개를 prompt를 이용하여 입력 받아 연산자에 맞는 계산결과를 출력 -> if 또는
+		switch-case문</h3>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<br>
+	<div id="result1"></div>
+
+	<br>
+	<hr color='red'>
+	<h3>
+		점수를 prompt 를 이용하여 입력받아 학점을 출력하시오.<br>
+	</h3>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<br>
+	<div id="result2"></div>
+
+	<br>
+	<hr color='red'>
+	<h3>
+		두 사람의 가위, 바위, 보를 입력 받아 승자를 출력하는 프로그램을 작성하시오.<br>
+	</h3>
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<br>
+	<div id="result3"></div>
+
+	<br>
+	<hr color='red'>
+	<h3>nested loop (중첩 반복문) 을 이용해서 구구단 표 출력</h3>
+	<input type="button" value="구구단표 출력" onclick="proc4()">
+	<br>
+	<br>
+	<div id="resutl4"></div>
+
+</body>
+
+</html>
