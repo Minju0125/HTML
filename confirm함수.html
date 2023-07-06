@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        // function proc1(){}
+        // proc1 = function(){}
+
+        //es6
+        proc1 = () => {
+            sum = 0;
+            str = ""; //출력변수
+
+            while(true){
+                su1 = prompt('첫번째 수 입력');     //su1입력
+                su2 = prompt('두번째 수 입력');     //su2입력
+
+                sum = parseInt(su1) + parseInt(su2);
+
+                //더하기값이 100이상이명 출력변수에 누적 -> 계속할건지 confirm함수로 -> 리턴값
+                if(sum>=100){
+                    str+=`(${su1}, ${su2}) <br>`;
+                    cont = confirm('계속하시겠습니까?');
+                    if(!cont) break;
+                }
+
+            }
+            document.getElementById('result1').innerHTML = str;
+        }
+
+        proc2 = () => {
+
+            str = "";
+
+            while(true){
+                
+                //구구단 입력 prompt 입력
+                num = prompt('수를 입력하세요');
+
+                str+= `&nbsp;&nbsp;[${num}단]<br>`;
+                //구구단 출력(for문)
+                for(i=1; i<=9; i++){
+
+                    multi = num * i;
+                    str+= `${num} x ${i} = ${multi} <br>`;
+                }
+                
+                str+= `<br>`;
+
+                //계속 할래? ->예/아니오(confirm 함수)
+                
+                cont = confirm('계속 할래?');
+                               
+                if(!cont)  break;
+            }
+            document.getElementById('result2').innerHTML = str;
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <h3>[1] 두 수를 입력하여 합이 100이상인 경우만 출력 <br> confirm() 함수를 이용하여 합이 100이상인 경우만 출력</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+    <br>
+    <hr color="red">
+
+    <h3>[2] 구구단 출력</h3>
+    <input type="button" value="확인" onclick="proc2()">
+    <br>
+    <div id="result2"></div>
+    <br>
+    <hr color="red">
+
+
+</body>
+
+</html>

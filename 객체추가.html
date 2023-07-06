@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        const rect = {}; //객체 껍데기만 만들어놓은것
+
+        proc1 = () => {
+            rect.width = 8; //객체내부에는 없지만 클릭하면 이렇게 설정하겠다.
+            rect.height = 5;
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <h3>const rect = {}; 비어있는 객체를 선언<br>
+        나중에 동적으로 속성이나 메소드를 추가할 수 있다.</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div id="result1"></div>
+</body>
+
+</html>
