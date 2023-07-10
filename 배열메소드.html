@@ -94,6 +94,20 @@
 		document.getElementById('result3').innerHTML = str;
 		
 	}
+	
+	proc4 = () => {
+		 str = `원래 배열 : ${arr} <br>`;
+		 
+		 vpop = arr.pop() //pop : 요소를 제거하고 마지막을 반환함
+		 
+		 str += `꺼낸값 : ${vpop} <br>`;
+		 
+		 str+= `꺼낸후 배열 : ${arr}<br>`;
+		 
+		document.getElementById('result4').innerHTML = str;
+		
+		
+	}
 </script>
 </head>
 
@@ -128,7 +142,7 @@
 	<input type="button" value="pop" onclick="proc4()">
 	<br>
 	<div class="ddres" id="result3"></div>
-	<div class="ddres" id="result3"></div>
+	<div class="ddres" id="result4"></div>
 	<br>
 	<hr color="red">
 </body>
