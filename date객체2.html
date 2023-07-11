@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>
+
+today = new Date();
+
+
+proc1 = () => {
+	//1) 태어난 날의 Date 객체를 생성한다.
+	myDay = new Date("1997.1.25"); //또는 myDay = new Date(1999,1-1,25);
+	
+	//2) getTime을 이용해서 millisec 값 구하기
+	times = today.getTime() - myDay.getTime();
+	console.log(times);
+	
+	//3) 실제 초 구하기
+	res = times /1000/60/60/24/365;
+	res = Math.round(res); //Math.round(res), Math.floor(res), Math.ceil(ress)
+	str = `오늘 날짜 : ${today.toLocaleDateString()}<br>`;
+	str+= `생일 : ${myDay.toLocaleDateString()} <br>`
+	str += `${res}년 동안 살고 있습니다.`
+	
+	document.getElementById('result1').innerHTML = str;
+	
+	
+}
+
+proc2 = () => {
+	//여기만 바꾸면 됨
+	day = 100;
+	
+	day500 = day * 1000 * 60*60*24;
+	todayTime = today.getTime();
+	
+	times = day500 + todayTime;
+	
+	v500 = new Date(times);
+	
+	//alert(v500);
+	v500 = v500.toLocaleDateString();
+	
+	str = `오늘 ${today.toLocaleDateString()}<br>`;
+	str += `${day}일 후 ${v500} <br>`
+	
+	document.getElementById('result2').innerHTML = str;
+	
+}
+
+proc3 = () => {
+	
+	//1) id 가 pdate인 것을 검색 => 2) date 객체 생성 (new Date(String date))
+	buyValue = document.getElementById('pdate').value;
+	buyDay = new Date(buyValue);
+	
+	//3) 오늘의 millisec - buyday의 millisec
+	times = today.getTime() - buyDay.getTime();
+	
+	//4) 일 구하기
+	day = times / 1000 / 60 / 60 / 24;
+	
+	//5) day 값 비교
+	if(day>7) {
+		res = "불가능";
+	} else {
+		res = "가능";
+	}
+	
+	//6) 결과 출력
+	str = `오늘 날짜 : ${today.toLocaleDateString()} <br>`
+	str += `구입한 날짜 : ${buyDay.toLocaleDateString()} <br>`
+	str += `교환/반품 ${res}`;
+	
+	document.getElementById('result3').innerHTML = str;
+	
+}
+
+proc4 = () => {
+	//크리스마스까지 남은 날 수 구하기
+	someDay = "2023.12.25";
+	dayString = "크리스마스";
+	
+	vsomeDay = new Date(someDay);
+	
+	times = vsomeDay.getTime() - today.getTime();
+	day = times / 1000/ 60/ 60/ 24;
+	day = Math.round(day);
+	
+	str = `오늘은 ${today.toLocaleDateString()}입니다. <br>`;
+	str += `${dayString}는 ${day}일 남았습니다.`
+	
+	document.getElementById('result4').innerHTML = str; 
+}
+
+
+</script>
+
+</head>
+<body>
+
+	<h3>태어난 날로부터 현재까지 경과한 날 수 구하기</h3>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<div class="ddres" id="result1"></div>
+	<br>
+	<hr color="red">
+
+	<h3>
+		500일 후의 날짜 구하기 <br> 1. 500일에 해당하는 millisec 구하기 - 500 * 1000 * 60
+		* 60 * 24<br> 2. 오늘의 millisec - today.getTime()<br> 3. 1+2<br>
+		4. Date 객체 생성 - new Date(1+2);
+	</h3>
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<div class="ddres" id="result2"></div>
+	<br>
+	<hr color="red">
+
+
+	<h3>
+		구입한 날로부터 오늘까지 경과한 날 수를 구한다. <br> 7일이상 경과햇으면 교환 / 반품 불가능 아니면 교환
+		/반품 가능
+	</h3>
+	<input type="date" id="pdate">
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<div class="ddres" id="result3"></div>
+	<br>
+	<hr color="red">
+
+	<h3>크리스마스까지 남은 날 수 구하기</h3>
+	<input type="button" value="확인" onclick="proc4()">
+	<br>
+	<div class="ddres" id="result4"></div>
+	<br>
+	<hr color="red">
+	
+	
+</body>
+</html>

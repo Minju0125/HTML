@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/style.css">
+
+<script>
+	proc1 = () => {
+		
+		//입력
+		vcode = prompt('주민등록번호 입력')
+			
+		//추출/substring/slice/substr
+		yy = vcode.substr(0,2);
+		mm = vcode.substr(2,2);
+		dd = vcode.substr(4,2);
+		gg = vcode.substr(7,1);
+		
+			
+		// 성별 구하기
+		//gg를 비교 1,3 gender = "남자" / 2,4
+		if(gg==1 || g==3) {
+			gender = "남자";
+		}else {
+			gender = "여자";
+		}
+		
+		// 년도 구하기
+		//gg를 비교 1,2 year = 1900 3,4 year = 2000
+		if(gg==1 || gg==2) {
+			yearStart = "19";
+		} else {
+			yearStart = "20";
+		}
+		
+		//나이
+		//현재년도 - 
+		today = new Date();
+		year = today.getFullYear() - (yearStart+yy);
+			
+	
+		//출력 
+		str = `주민번호 : ${yy}${mm}${dd}-${gg}******<br>`;
+		str+= `생년월일 : ${yearStart}${yy}년 ${mm}월 ${dd}일<br>`
+		str+= `나이 : ${year}세<br>`
+		str+= `성별 : ${gender}`
+		//주민번호 : 
+			//생년월일 :
+				//나이 : 
+		document.getElementById('result1').innerHTML = str;
+	}
+
+
+</script>
+</head>
+<body>
+
+   <h3>prompt로 주민등록번호를 입력 받아 생년월일과 성별, 나이를 출력하는 프로그램을 작성하시오.</h3>
+    <input type="button" value="확인" onclick="proc1()">
+    <br>
+    <div class = "ddres" id="result1"></div>
+    <br>
+    <hr color = "red">
+
+</body>
+</html>

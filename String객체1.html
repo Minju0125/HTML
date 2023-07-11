@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script>
+proc1 = () => {
+
+	//textarea 검색
+	//areas = document.getElementsByTagName('textarea');
+	//values = areas[0].value; 
+	
+	//values = document.getElementsByTagName('textarea')[0].value;
+	
+	values = document.querySelector('textarea').value //쿼리셀렉터는 가장 처음에 나오는 하나만 
+	values = values.replace(/\n/g, "<br>")
+	
+	document.getElementById('result1').innerHTML = values;
+}
+
+	str = "I Love Korea 대한민국 만세 !!!";
+proc2 = () => {
+	
+	
+	vsome1 = str.substring (7,12);
+	vsome2 = str.slice (7,12);
+	vsome3 = str.substr (7, 5);
+	
+	pstr = `${str} <br>`;
+	pstr += `str.substring(7,12) : ${vsome1} <br>`;
+	pstr += `str.slice (7,12) : ${vsome2} <br>`;
+	pstr += `str.substr (7, 5) : ${vsome3} <br>`;
+	
+	document.getElementById('result2').innerHTML = pstr;
+	
+}
+
+proc3 = () => {
+	up = str.toUpperCase();
+	low = str.toLowerCase();
+	
+	pstr = `${str} <br>`;
+	pstr += `str.toUpperCase() : ${up} <br>`;
+	pstr += `str.toLowerCase () : ${low} <br>`;
+
+	document.getElementById('result3').innerHTML = pstr;
+}
+
+proc4 = () => {
+	strarr = str.split(" ");
+	pstr = `${str} <br>`;
+	pstr += `길이 : ${str.length}<br>`
+	pstr += `${strarr} <br>`;
+	pstr += `길이 : ${strarr.length}<br>`
+	
+	document.getElementById('result4').innerHTML = pstr;
+	
+	
+}
+</script>
+</head>
+<body>
+
+	<h3></h3>
+	<textarea rows="10" cols="50"></textarea>
+
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<div class="ddres" id="result1"></div>
+	<br>
+	<hr color="red">
+
+	<h3>
+		str = "I Love Korea 대한민국 만세 !!" <br> 문자열 추출 substring(7,12) /
+		slice(7,12) / substr(7,5)
+	</h3>
+
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<div class="ddres" id="result2"></div>
+	<br>
+	<hr color="red">
+
+	<h3>str = "I Love Korea 대한민국 만세 !!!"</h3>
+
+	<input type="button" value="확인" onclick="proc3()">
+	<br>
+	<div class="ddres" id="result3"></div>
+	<br>
+	<hr color="red">
+
+	<h3>str = "I Love Korea 대한민국 만세 !!!"</h3>
+
+	<input type="button" value="확인" onclick="proc4()">
+	<br>
+	<div class="ddres" id="result4"></div>
+	<br>
+	<hr color="red">
+
+
+</body>
+</html>
