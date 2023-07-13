@@ -6,28 +6,147 @@
 <link rel="stylesheet" href="../css/style.css">
 <script>
 proc1 = () => {
-   str = location.hostname + "<br>";
-   str += location.port + "<br>";
-   str += location.pathname + "<br>";
-   str += location.host + "<br>";
+   str = "hostname : " + location.hostname + "<br>";
+   str += "port : "+location.port + "<br>";
+   str += "pathname : "+location.pathname + "<br>";
+   str += "host : " +location.host + "<br>";
    
    document.getElementById('result1').innerHTML = str;
 }
-
 proc2 = () => {
-	location.href = "http://localhost/webpro/0711/date객체2.html";
+   location.href = "http://localhost/webpro/0711/date객체2.html";
+}
+proc3 = () => {
+   location.href = "http://localhost/webpro/0712/test.jsp?name='홍길동'";
 }
 
+sendProc = () => {
+	//post 방식으로 서버 전송 - form 을 검색
+	
+// 	//입력한 값을 가져온다. - id를 검색
+// 	document.getElementById('uname').value; => post 일때는 이거 필요없음
+	
+	//post 방식으로 서버로 전송한다. - form 을 검색한다.
+// 	vff1 = document.getElementById('ff1');
+	vff1 = document.ff1; //name을 이용해서 이렇게 쓸수 있음
+	
+	vff1.action = "test.jsp";
+	vff1.method = "post";
+	
+	vff1.submit();
+	
+	
+	//
+}
+
+goReload = () => {
+	
+	//문자배열을 생성
+	str = ["Hello~", "HTML", "CSS", "JavaScript", "jQuery", "JSON","안녕하세요", "열심히 공부합시다"]
+	
+	//랜덤생성 //str[rand]
+	rand = parseInt(Math.random() * str.length);
+	
+// 	res = "<h1>" + str[rand] + "</h1>"
+	res = `<h1>${str[rand]}</h1>`
+	
+	document.getElementById('result2').innerHTML = res;
+	
+	document.getElementById('result2').style.color = 'red';
+	document.getElementById('result2').style.background = 'yellow';
+	
+	setTimeout(function(){
+		location.reload();
+	},3000)
+
+	
+	
+	
+}
 </script>
+
+<style>
+div.ddres {
+	height: 50px;
+}
+
+h1 {
+	margin: 0px;
+}
+</style>
 </head>
 <body>
 
-	<h3></h3>
+	<h3>location객체의 속성</h3>
 	<input type="button" value="확인" onclick="proc1()">
+
+	<h3>
+		버튼 클릭 시 함수 호출 - 함수 내에서 페이지이동 실행<br> location.href =
+		"http://localhost/webpro/0711/date객체2.html";
+	</h3>
 	<input type="button" value="확인" onclick="proc2()">
 	<br>
 	<div class="ddres" id="result1"></div>
 	<br>
 	<hr color="red">
+
+	<h3>
+		get방식에서 location.href<br>
+		onclick="location.href='test.jsp?name=korea'
+	</h3>
+	<input type="button" value="확인"
+		onclick="location.href='test.jsp?name=korea'">
+	<br>
+	<br>
+	<hr color="red">
+
+	<h3>
+		a태그에서 location.href<br> href="#"
+		onclick="location.href='test.jsp?name=korea' href="#"
+		onclick="proc3()"<br> href="javascript:proc3()"
+	</h3>
+	<a hrdf="http://www.naver.com" target="_blank">네이버</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="proc3()" target="_blank">test.jsp</a>
+	<!-- #하면 기능이 없는거, a태그 말고 onclick으로 실행시키려함 -->
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="location.href='test.jsp?name=개나리'">test.jsp</a>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="javascript:proc3()">test.jsp</a>
+	<!-- href에서는 onclick에서 proc3() 준것처럼 직접 호출할 수 없음, javascript: 써야함 -->
+	<br>
+	<hr color="red">
+
+	<h3>post 방식에서</h3>
+	<form name="ff1" id="ff1">
+		이름 <input type="text" id="name" name="name"><br> <input
+			type="button" value="전송" onclick="sendProc()">
+	</form>
+	<form name="ff2" action="test.jsp" method="post">
+		이름 <input type="text" name="name"><br> <input
+			type="submit" value="전송">
+	</form>
+	<hr color="red">
+	<h3>
+		replace/assign<br> 새로운 페이지 로드 replace : 히스토리를 남기지 않음. 뒤로가기 안됨<br>
+		assign : 히스토리를 남김
+	</h3>
+	<input type="button" value="replace"
+		onclick="location.replace('test.jsp')">
+
+	<input type="button" value="assign"
+		onclick="location.assign('test.jsp')">
+
+	<hr color="red">
+	<h3>
+		reload : 현재 문서를 다시 로드한다.<br> 랜덤으로 문자열을 result에 출력한다. 3초후에 원래 문서로
+		돌아옴
+	</h3>
+	<input type="button" value="reload" onclick="goReload()">
+	<br>
+	<div id="result2" class="ddres"></div>
+
+
+
 </body>
 </html>
