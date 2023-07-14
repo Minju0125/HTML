@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" href = "../css/style.css">
-
+<link rel="stylesheet" href="../css/style.css">
 
 <script>
+	arr = ["Hello", "Happy", "Merry Christmas", "javaScript", "공부합시다", "사랑은 늘 도망가"];
 proc1 = () => {
 	
 	//문자 배열 
-	arr = ["Hello", "Happy", "Merry Christmas", "javaScript", "공부합시다", "사랑은 늘 도망가"];
+
 	
 	rand = parseInt(Math.random() * arr.length);
 	
@@ -51,24 +51,117 @@ delProc = () => {
 	//또는 vresult.removeChild(vresult.fistChild);
 	
 }
+
+
+proc2 = () => {
+	
+	//random 발생
+	rand = parseInt(Math.random() * arr.length);
+	
+	//p태그 생성
+	vp = document.createElement('p');
+	
+	//textNode생성 - arr[rand]
+	tNode = document.createTextNode(arr[rand]);
+	
+	//input button을 생성한다.
+	vinput = document.createElement('input');
+	vinput.type = "button";
+	vinput.value = "삭제";
+// 	vinput.onclick = function(){	this.parentNode.remove();} // 이렇게 또는
+// 		//람다함수를 쓰면 this의 의미가 다름, 현재 this는 p태그인데, 람다함수에서는 function 자체가 this임 -> this를 쓸때는 람다함수x
+	
+
+	vinput.onclick = removeP; //==> 함수이름. 호출이 아님 !(함수의 주소값을 대입하겠다는 의미)
+	
+	
+	//p태그에 tNode를 추가한다.
+	vp.appendChild(tNode);
+	
+	//p태그에 vinput을 추가한다.
+	vp.appendChild(vinput);
+	
+	//result2을 검색
+	vres2 = document.getElementById('result2');
+	vres2.appendChild(vp);
+	
+}
+
+function removeP(){
+	this.parentNode.remove();
+}
+
+proc3 = () => {
+	
+	//p태그를 생성한다
+	vp = document.createElement('p');
+	
+	//input file을 생성
+	vfile = document.createElement('input');
+	vfile.type = "file";
+	
+	//input button 생성
+	vinput = document.createElement('input');
+	vinput.type = "button";
+	vinput.value = "삭제";
+	
+	vinput.onclick = removeP;
+	
+	//p태그에 vfile 추가한다.
+	vp.appendChild(vfile);
+
+	//p태그에 vinput 추가한다.
+	vp.appendChild(vinput);
+	
+	//result3 을 검색
+	vres3 = document.getElementById('result3');
+	vres3.appendChild(vp);
+	
+	
+}
 </script>
 </head>
 <body>
 
-   <h3>버튼을 클릭하면 문자열을 가진 p태그를 생성하여 result1에 추가<br>
-   p태그 생성 - document.createElement('p')<br>
-   textNode생성 - createTextNode('문자열')<br>
-   textNode를 p태그에 추가한다. - p태그.appendChild(textNode)<br>
-   p태그를 result1에 추가한다. - result1.appendChile(p태그)</h3>
-   
-    <input type="button" value="확인" onclick="proc1()">
-    <input type="button" value="삭제" onclick="delProc()">
-    <br>
-    <div class = "ddres" id="result1"></div>
-    <br>
-    <hr color = "red">
-    
-    
+	<h3>
+		버튼을 클릭하면 문자열을 가진 p태그를 생성하여 result1에 추가<br> p태그 생성 -
+		document.createElement('p')<br> textNode생성 -
+		createTextNode('문자열')<br> textNode를 p태그에 추가한다. -
+		p태그.appendChild(textNode)<br> p태그를 result1에 추가한다. -
+		result1.appendChile(p태그)
+	</h3>
+
+	<input type="button" value="확인" onclick="proc1()">
+	<input type="button" value="삭제" onclick="delProc()">
+	<br>
+	<div class="ddres" id="result1"></div>
+	<br>
+	<hr color="red">
+
+
+	<h3>
+		버튼을 클릭하면 문자열을 가진 p태그를 생성하여 result1에 추가<br> p태그 생성 -
+		document.createElement('p')<br> textNode생성 -
+		createTextNode('문자열')<br> input태그 생성 - createElement('input');<br>
+		.type = "button" .value= "삭제" <br> textNode를 p태그에 추가한다. -
+		p태그.appendChild(textNode)<br> input button을 p태그에 추가 p태그를 result2에
+		추가한다. - result2.appendChile(p태그)
+	</h3>
+
+	<input type="button" value="확인" onclick="proc2()">
+	<br>
+	<div class="ddres" id="result2"></div>
+	<br>
+	<hr color="red">
+
+
+	<h3>추가버튼을 클릭하면 input file 객체를 생성</h3>
+
+	<br>
+	<input type="button" value="추가" onclick="proc3()">
+	<div class="ddres" id="result3"></div>
+	<br>
+	<hr color="red">
 
 </body>
 </html>
