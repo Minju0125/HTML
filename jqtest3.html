@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js"></script>
+
+<script>
+
+window.onload = () => {
+	$('#btn1').on('click', () => {
+		
+	// 	$('#result1 h1').css('color', 'red'); //jqery로 쓰면 간결함
+	
+	hlist = document.querySelectorAll('#result1 h1');
+// 	hlist = document.querySelectorAll('#result1 h1'); //result1에 있는 h1만 선택
+	//hlist는 배열이가 for문 돌아야 함
+	for(i = 0; i<hlist.length; i++){
+		// hlist[i].style.color = 'green';
+		
+		// document로 가져온 dom 변수 -> css는 jquery함수임
+		// dom 변수는 자바 스크립트로 가져온 변수인데, 메소드는 jquery => x
+		
+		// dom변수를 $()로 감싸주면 jquery로 변환되어서 css 메소드 적용가능
+		$(hlist[i]).css('color', 'blue');
+	} 
+	})
+	
+	$('#btn2').on('click', function(){
+		$('#result2 h1').eq(2).css('color', 'purple')
+		
+		hlist = document.querySelectorAll('#result2 h1');
+// 		hlist[4].style.color = 'lightgrey';
+		$(hlist[4]).css('color', 'green');
+		
+		
+	})
+	
+}
+
+
+
+</script>
+
+</head>
+<body>
+
+	<h3>h1 전체를 선택하여 글자색을 변경한다.</h3>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<div class="ddres" id="result1">
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+	</div>
+	<br>
+	<hr color="red">
+	
+	<h3>2번째 h1 선택하여 글자색을 변경한다.<br>
+	지정하는 번째의 h1을 선택한다.</h3>
+	<input type="button" value="확인" id="btn2">
+	<br>
+	<div class="ddres" id="result2">
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+		<h1>무궁화 꽃이 피었습니다.</h1>
+	</div>
+	<br>
+	<hr color="red">
+
+</body>
+</html>
