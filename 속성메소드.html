@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script>
+	$(function() {
+		$('#btn1').on('click', function(){
+			//$('img').attr('title','그림')
+			$('img').attr('title',function(){
+				//function에서 수행된 결과값을 title로 
+				
+				// src의 속성값을 가져온다.
+				vsrc = $(this).attr('src');
+				
+// 				vsrc.slice(start, end)
+// 				vsrc.substring(start, end)
+s
+ 				//vsrc.substr() (시작위치부터 추출할 문자열의 갯수 기술)
+ 				//start=10;
+				start=vsrc.lastIndexOf("/")+1;
+				end=vsrc.lastIndexOf(".");
+				
+				vtitle = vsrc.substring(start, end);
+				
+				return vtitle;
+				
+ 				
+ 				
+				// src의 값에서 이미지 이름 부분을 문자열 추출한다.
+				// 추출하기 위해서 시작 위치와 end 위치를 구한다.
+				//
+			})
+		})
+	})
+</script>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+
+	<h3></h3>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<div class="ddres" id="result1">
+		<img src="../images/Koala.jpg" alt="Koala.jpg"> <img
+			src="../images/식품2.jpg" alt="식품2.jpg"> <img
+			src="../images/국화.jpg" alt="국화.jpg"> <img
+			src="../images/뱅쇼.jpg" alt="뱅쇼.jpg"> <img src="../images/산.png"
+			alt="산.png">
+
+	</div>
+	<br>
+	<hr color="red">
+
+</body>
+</html>
