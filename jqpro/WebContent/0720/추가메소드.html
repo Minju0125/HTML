@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script>
+$(function(){
+//    $('#p2').on('click', function(){
+      
+//    })
+   
+//    $('#p3').on('click', function(){
+      
+//    })
+
+//    $('#p4').on('click', function(){
+      
+//    })
+   
+//    $('#p1').on('click',function(){
+//       //타이틀 속성 가져오기
+//       vtitle = $(this).attr('title');
+      
+//       //이미지 만들기
+//       vimg = $("<img>",{ 
+//          'src' : '../images/'+vtitle,
+//          'alt' : vtitle
+          
+//       })
+      
+//       $(this).append(vimg);
+//    })
+   
+   
+   $('p').on('click', function(){
+	   
+	   vtitle = $(this).attr('title');
+	   vmethod = $(this).prev().text();
+	   
+	   //이미지 만들기
+	    vimg = $("<img>",{ 
+         'src' : '../images/'+vtitle,
+         'alt' : vtitle
+          
+      })
+      
+      //이미지 추가하기
+      switch(vmethod){
+      case "append" : 
+    	  $(this).append(vimg);
+    	  break;
+      case "prepend":
+    	  $(this).prepend(vimg);
+    	  break;
+      case "after" :
+    	  $(this).after(vimg);
+    	  break;
+      default :
+    	  $(this).before(vimg);
+    	  break;
+      }
+   })
+   
+})
+</script>
+<style>
+img{
+  width : 80px;
+  height : 80px;
+}
+p{
+  border : 1px dotted orange;
+  padding : 5px;
+}
+</style>
+</head>
+<body>
+
+<h2>각p태그를 클릭하면 이미지를 생성하여 추가한다</h2>
+<h3>append</h3>
+<p id="p1" title="gsjLogo1.png">로고</p>
+
+<h3>prepend</h3>
+<p id="p2" title="Jellyfish.jpg">젤피</p>
+
+<h3>after</h3>
+<p id="p3" title="cloud03.jpg">구름</p>
+
+<h3>before</h3>
+<p id="p4" title="sw_on.png">소우</p>
+
+<br>
+<br>
+<hr color="red">
+</body>
+</html>

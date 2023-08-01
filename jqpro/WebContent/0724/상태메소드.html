@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script>
+	$(function(){
+		$('#btn1').on('click', function(){
+			//현재의 상태값 가져오기
+			vcheck=$('#checkTest').prop('checked'); //결과 true/false 로 나옴
+			vsel=$('#selTest option:eq(2)').prop('selected');
+			vtxt=$('#txtTest').prop('readonly');
+			vbtn=$('#runBtn').prop('disabled');
+			
+			console.log(vcheck,vsel,vtxt,vbtn);
+		
+			//상태값 변경
+			$('#checkTest').prop('checked', !vcheck);
+			$('#selTest option:eq(2)').prop('selected',!vsel);
+			$('#txtTest').prop('readonly',!vtxt);
+			$('#runBtn').prop('disabled',!vbtn);
+			
+			console.log(vcheck,vsel,vtxt,vbtn);
+			
+			
+			/* 상태값을 변경
+			if(vcheck==true){ //getter
+				$('#checkTest').prop('checked',false); //setter
+			}else{
+				$('#checkTest').prop('checked',true);
+			}
+			
+			if(vsel==true){ //getter
+				$('#selTest option:eq(2)').prop('selected',false); //setter
+			}else{
+				$('#selTest option:eq(2)').prop('selected',true);
+			}
+			
+			if(vtxt==true){ //getter
+				$('#txtTest').prop('readonly',false); //setter
+			}else{
+				$('#txtTest').prop('readonly',true);
+			}
+			
+			if(vbtn==true){ //getter
+				$('#runBtn').prop('disabled',false); //setter
+			}else{
+				$('#runBtn').prop('disabled',true);
+			}
+			*/
+			
+			
+		})
+		
+// 		$('#checkAll').on('click', function(){
+		$('#checkAll').on('change', function(){//click대신 change 써도 됨
+			
+			//checkAll을 this로
+			vchk = $(this).prop('checked'); //getter로 가져와서 현재 값을 vchk레 저장
+			
+			$('.check').prop('checked',vchk);
+			
+		})
+	})
+</script>
+</head>
+<body>
+
+	<h3></h3>
+	<input type="button" value="확인" id="btn1">
+	<br>
+	<div class="ddres" id="result1">
+		<body>
+			<form>
+				체크박스(라디오버튼) :
+				<input type="checkbox" id="checkTest" checked><br><br>
+				
+				리스트박스(select객체) :
+				<select id="selTest">
+					<option value="1">하나</option>
+					<option value="2">둘</option>
+					<option value="3" selected>셋</option>
+					<option value="4">넷</option>
+				</select><br> <br> 
+				
+				text객체 (readonly) : 
+				<input type="text" value="가나다" id="txtTest"> <br><br>
+				button객체(disabled) : 
+				<input type="button" value="실행" id="runBtn" onclick="alert('hello')">
+			</form>
+		</body>
+
+
+	</div>
+	<br>
+	<hr color="red">
+	
+	<div class="ddress" id="result2">
+		
+		체크박스(전체선택/해제) : <br>
+		<input type="checkbox" id="checkAll">전체선택
+		<input type="checkbox" class="check">1
+		<input type="checkbox" class="check">2
+		<input type="checkbox" class="check">3
+		<input type="checkbox" class="check">4
+		<input type="checkbox" class="check">5
+		
+	</div>
+
+</body>
+</html>

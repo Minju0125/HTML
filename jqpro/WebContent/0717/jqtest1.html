@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/jquery-3.7.0.min.js"></script>
+<script>
+
+$(document).ready(function(){
+//스크립트 시작하자마자 시작함 -> body태그 생성안됐는데 찾으라그러면 못찾음 => window.onload
+	btn = $('#jqbtn');
+	btn.on('click', function(){
+// 	   alert('jqclick');
+
+
+		res = $('#result2');
+		res.css('background-color', 'red');
+		
+
+	})
+})
+
+/*
+//javascript방식
+window.onload = function(){   
+// 스크립트 시작하자마자 시작함 -> body태그 생성안됐는데 찾으라그러면 못찾음 => window.onload
+   btn = document.getElementById('jqbtn');
+   btn.addEventListener('click',function(){
+   alert("클릭");
+   
+   			res = document.getElementById('result2');
+   			res.style.background = 'red';
+   })
+}
+*/
+//javascript방식 - onclick 이벤트가 input태그 안에
+proc1 = () => {
+   res = document.getElementById('result1');
+   res.style.backgroundColor = 'green';
+   
+}
+</script>
+</head>
+<body>
+
+	<h3>
+		javascript방식 onclick이벤트를 태그에 설정<br>
+		$(document).ready(function(){html 요소 검색 후 실행 })
+	</h3>
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	<div class="ddres" id="result1"></div>
+	<br>
+	<hr color="red">
+
+	<h3>jquery방식 onclick 이벤트를 script에서 설정</h3>
+	<input type="button" value="확인" id="jqbtn">
+	<br>
+	<div class="ddres" id="result2"></div>
+	<br>
+	<hr color="red">
+</body>
+</html>

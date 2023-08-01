@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/style.css">
+<script>
+function proc1(){
+	location.href= "/jqpro/0726/lprodList.jsp"
+}
+//동기를 실행하면 페이지 자체가 jsp 페이지로 바뀜
+
+//비동기는 json 데이터만 가져와서 현재 페이지에서 가공해서 출력함
+//주소도 안바뀜
+
+function proc2(){
+	
+	//요청
+	xhr = new XMLHttpRequest();
+	
+	xhr.open('get','lprodJson.jsp', true); //true => 비동기
+	xhr.send();
+	
+	
+	
+	//응답
+	xhr.onreadystatechange = function(){
+	alert(this.readyState);
+		if(this.readyState == 4 && this.status ==200){
+			res = this.responseText;
+			
+			pares = JSON.parse(res);
+			
+			code = "<table border = '1'>";
+			code+= "<tr><th>LPROD_ID</th>";
+			code+= "<th>LPROD_GU</th>";
+			code+= "<th>LPROD_NM</th></tr>";
+			
+			for(let i=0; i<pares.length; i++){
+				 
+			code += "<tr><td>" + pares[i].lprod_id + "</td>";
+			code += "<td>" + pares[i].lprod_gu + "</td>";
+			code += "<td>" + pares[i].lprod_nm + "</td></tr>";
+			
+			}
+			code += "</table>";
+			
+			document.getElementById('result1').innerHTML = code;
+		}
+		
+	}
+	
+	
+}
+</script>
+</head>
+<body>
+
+   <h3></h3>
+   <p>onclick='location.href= "/jqpro/0726/lprodList.jsp"'</p>
+    <input type="button" value="동기" onclick='location.href= "/jqpro/0726/lprodList.jsp"'>
+    
+    <br>
+    <p>onclick="proc1()"</p>
+    <input type="button" value="동기" onclick="proc1()">
+    
+    <br>
+    <p>javascript의 비동기 처리 - 처리 후 json데이터를 응답 받는다.</p>
+    <input type="button" value="비동기" onclick="proc2()">
+    <br>
+    <div class = "ddres" id="result1"></div>
+    <br>
+    <hr color = "red">
+
+</body>
+</html>
