@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    //var, let, const
+    //var function 안에 있나 밖에 있나만 구분하면 됨 !
+
+    //한마디로 하면 원시타입은 속성도 메소드도 없는 애 !
+
+    //문자열은 ""빼고는 다 true 보통 truthy(true 같은)
+    //number는 0 빼고 다 true
+    //unefined , null은  false (동적언어의 특성 !)
+    
+    //자동형변환을 이해는 하지만, 가독성이 필요할 때에는
+    //비교문을 일부로 써주기도 함.
+    let msg = !0; //true (자동형변환)
+    if(!msg){
+        alert("정말 ? " + msg);
+    }
+
+    if(!null){ //true
+        alert("정말? " + msg);
+    }
+
+    /*
+    let msg = "은솔이는 최고 예쁘당";
+    if(msg){ //if 안에는 booolen 와야 되는데, 자동으로 boolean 값으로 바꿈 (자동형변환)
+        alert("정말 ? " + msg);
+    } //모든 문자열은 true?
+         //자바에서는 실행x
+    */
+
+    /*
+    let msg = "";
+    if(msg){ //실행X
+        alert("정말 ? " + msg);
+    } //모든 문자열은 빈 공백 빼고는 true (boolean)으로 자동 형변환 !!!
+    */
+
+    /*
+    let numStr = "1000";
+    alert(typeof(numStr)); //string
+    numStr = numStr - 0; //산술연산하려면 numStr이 number type으로 자동형변환됨
+    alert("체에킁 : " + typeof(numStr)); //number
+    */
+
+    /*
+    let numStr = "1000"; 
+    let ck = numStr + 1000; // 1000원에 (자동)형변환 // (더하기만)문자열+숫자 => 문자열+문자열 로 바뀜
+    let ck1 = numStr - 1000;
+    alert("체에킁 : " + ck); // 10001000
+    alert("체에킁 : " + ck1); // 0 (이건 다 숫자로 바뀜 !)
+    */
+
+    /*
+    let primStr = "오경석"; //원시타입
+     
+    alert(typeof(primStr)); //데이터 타입 확인 => string
+    alert(primStr.substring(0,1)); // => 오
+        //원시타입은 낱개라서 속성, 메소드가 없어야하는데 ?
+        //원시타입에 . 을 찍는 순간 wrapper class로 자동으로 바뀜
+        //내부적으로 string -> String으로 바뀜
+        //wrapper class => 자바에서 int / Integer , bouble / Double
+    */
+    
+    /*
+    const bts= {name:"메롱"}; //객체가 만들어짐 (주소 할당됨)
+
+    bts.name = "정꾹"; //객체는 그대로 있고, name 값만 바뀜 !
+
+
+    bts = {name:"보영"}; //이건 객체를 새로 생성하는것은 안됨 (const 이기 때문에)
+    */
+
+    /*
+    var aaa="흥치뿡";
+    function fCheck() {
+        var aaa = 3; //지역변수 (lcoal variable)
+
+        for(var i=1; i<=10; i++){
+
+        }
+        alert("체킁 : " + i);
+
+    }
+    fCheck();
+    // alert("체킁 : " + aaa); 
+    */
+
+</script>

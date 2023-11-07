@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    let doyun = {}; //빈 객체 생성(JSON)
+    
+    // doyun.0 ="권"; //변수명은 숫자로 시작할 수 없다는 규칙에 위배
+    doyun[0] = "권"; //이렇게 쓰면 doyun["0"] = "권" 과 같음
+                    //문자열 속성이 되어서 배열처럼 쓸 수 있음 !
+    doyun.length = 1;
+    doyun[1] = "도윤";
+    doyun.length++;
+    for(let i=0; i<doyun.length; i++){
+        alert(doyun[i]);
+    }
+
+    console.log(doyun);
+
+    let doyun1 = ["권", "도윤"];
+    console.log(doyun1);
+    
+</script>

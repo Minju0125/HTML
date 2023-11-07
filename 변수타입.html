@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+    // 원시타입(쪼갤수x) number, string, boolean, undefined, null 등은 무시
+    // 참조타입 배열, 객체  2개 묶어서 JSON(JavaScript Object Notation) 이라 부름 - 객체 표기법
+    // 동작방식(Operation)이 달라서 꼭 인식하지 않으면 안됨 !
+
+    /*
+    let merong = new Object();
+    merong.name = "박주연";
+    */
+    
+    let check =["kgb"]; 
+    // let huk = check; //배열이기 때문에 객체와 동작 방식 같음
+    let huk = check[0]; // "kgb" (문자열, 원시타입) 이기 때문에 huk 에 복사됨 (copy)
+    
+    huk = "흑흑흑";
+
+    // huk[0] = "메롱";
+    alert(check[0]);
+
+    /*
+    let merong = {
+        name : "박주연"
+    }
+    let hope = merong; //요때는 변수명이 별명으로 동작
+                       // 같은 걸(주소) 가리킴 call by reference
+    hope.name = "정하";
+    alert(merong.name); 
+    */
+
+    /* 원시타입은 동작이 copy - call by value로 실행됨
+    let aaa = "범종";
+    let bbb = aaa; //복사되었다고 함(copy) -> call by value
+    
+    alert("체크2 : " + bbb); 
+    
+    bbb="우정";
+    alert("체킁2 : " + bbb); //범종
+
+    // alert("체킁: " + aaa); //범종
+    */
+
+</script>

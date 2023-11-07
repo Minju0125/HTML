@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrapper {
+            margin: 200px auto;
+            /* 수평 가운데 정렬 */
+            width: 70%;
+            border: 1px solid black;
+        }
+
+        #modal {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(135, 206, 250, 0.5);
+            /*알파값-> 투명도 조절*/
+            display: none;
+            /* 처음에는 안보여야함 */
+        }
+
+        #modalCont {
+            width: 50%;
+            height: 80%;
+            margin: 50px auto;
+            /* 수평 중앙정렬 */
+            background-color: black;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 나의 모달-->
+    <div id="modal">
+        <div id="modalCont">
+            <h1>난 최고의 프로그래머당</h1>
+            <button id="clsBtn">X</button>
+        </div>
+    </div>
+    <!--보통 메인영역은 wrapper나 container 란 이름을 지정 -->
+    <div id="wrapper">
+        <button id="modBtn">모달열깅</button>
+    </div>
+    <script>
+        const modBtn = document.querySelector("#modBtn");
+        const modal = document.querySelector("#modal");
+        const clsBtn = document.querySelector("#clsBtn");
+        modBtn.addEventListener("click", function () {
+            modal.style.display = "block"; //모달 보이게
+        });
+        clsBtn.addEventListener("click", function () {
+            modal.style.display = "none"; //모달 닫기
+        });
+    </script>
+</body>
+
+</html>

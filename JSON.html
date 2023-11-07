@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<h1 id="na">난 최고의 프로그래머당</h1>
+<script>
+
+const na = document.querySelector("#na");
+// na.style.backgroundColor ="black";
+// na.style.color = "white";
+
+// ----  위 코드를 배열식 접근법으로 표현 ----
+na.style["background-color"] = "black";
+na.style["color"] = "white"; 
+
+// JSON 열심히 해서 유명해진 사람 제이슨 스타뎀 !
+//--------------------------------------------------------
+
+// 객체 생성시 괄호로 표현
+// key, value
+/*
+let test = {
+    name : "태형",
+    nick : "잘생김"
+    msg : function(){
+        alert(this.name);
+    }
+}
+*/
+//--------------------------------------------------------
+
+/*
+let test = {}; // 빈 객체 생성
+test.name ="태형"; //속성 
+test.nick ="잘";
+test.msg = function(){ //메소드
+    alert(this.name);
+}
+*/
+/*
+let name = "fbi";
+let test = {
+   // name : name   //객체의 키값은 자동으로 문자열 처리
+                    // "name" : "메롱" (실제로는 이렇게 처리됨)   
+    name // 키, 변수명 같을때 생략함 => {name: 'fbi'} 
+        //일반적으로 이 방법을 씀 !
+}
+console.log("체킁 : ", test);
+*/
+
+//배열식(연관배열이라고도 함) 접근법 (꼭 ! 알아야함)
+let name = "superman";
+let test = {
+    [name] : "원더우먼" //이렇게 쓰는게 프로그램상 유리할 때 있음
+                       //대괄호쓰면 키값에 변수가 들어올 수 있음 (동적으로 키값 할당 가능)
+                          
+}
+console.log("체킁 : ", test);
+
+</script>
