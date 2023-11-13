@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function jsonFlickrFeed(pRslt) {
+            myDisp.innerHTML = ""; // 뿌리기 전에 한번 클리어
+            // console.log()
+
+            let imgItems = pRslt.items;
+
+            for (let i = 0; i < imgItems.length; i++) {
+                let imgUrl = imgItems[i].media.m;
+                // console.log("이미지 urlk : ", imgItems[i].media.m);
+                let myImg = document.createElement("img");
+                myImg.src = imgUrl;
+                myDisp.appendChild(myImg);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="schImg" value="" placeholder="찾는 이미지?">
+    <button onclick="fSchImg()">search</button>
+    <div id="disp"></div>
+</body>
+<script>
+    const preURL = "https://www.flickr.com/services/feeds/photos_public.gne?tags=";
+    const postURL = "&format=json";
+    const fSchImg = () => {
+        let schURL = `${preURL}${mySch.value}${postURL}`;
+        let myScript = document.createElement("script"); // 스크립트 태그 생성
+        myScript.src=schURL; // 태그 src 속성에 작성된 URL 넣기
+        document.head.appendChild(myScript); // 문서의 head 태그 사이에 넣기
+    };
+    const myDisp = document.querySelector("#disp");
+    const mySch = document.querySelector("#schImg");
+</script>
+<script src="https://www.flickr.com/services/feeds/photos_public.gne?tags=강아지&format=json"></script>
+</html>

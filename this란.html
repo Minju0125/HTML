@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<h1 id="js">재성 오케잉</h1>
+<button id="bind">억지 bind 예제 버튼</button>
+<script>
+    //사용이 권장되지는 않음. (잘못씀)
+    // document.write("<h1>슈붕</h1>");
+    
+    /* 
+    // document.write를 짧게 쓰기 위해서 prt 로 바꿈
+    function prt(msg){
+        document.write(msg);
+    }
+    */
+
+    /* bind 를 통해 this 값을 바꿔버림
+    // var prt = document.write; //문법 OK ! => 별명 prt 를 준것
+                    //bind 를 통해 this 값을 강제로 document 로 바꿔버림!!!!! 
+    var prt = document.write.bind(document); 
+    prt("<h1>씨앗호떡</h1>");
+    prt("<h1>팥붕</h1>");
+   */
+
+    const myBind = document.querySelector("#bind");
+
+    function fClick(pName) {
+        alert(`${pName}님 저 누르셨어요?`);
+        alert(this.merong);
+    }
+    // myBind.addEventListener("click",fClick);
+    // myBind.addEventListener("click",fClick()); //이건 틀린 문법! 함수 실행 문법
+    myBind.addEventListener("click",fClick.bind(
+        {merong:"재성메롱"},"이수정"
+        )
+        );
+
+    
+    // call, apply, bind 라는 function 객체의 메소드로
+    // function안의 this값을 개발자가 직접 지정이 가능해짐
+
+    function fThis(pArg1, pArg2, pArg3) {
+        console.log("체킁 : ", this);
+        console.log("체킁 : ", pArg1, pArg2, pArg3);
+    }
+
+    fThis();
+    //객체 선언
+    var sujin = {
+        name: "전 수진",
+        mood: "반짝 반짝",
+    }
+
+    fThis.call(document.querySelector("#js"), "김", "재", "성");
+    fThis.call(sujin, ["전", "수", "진"]);
+    //alppy는 무조건 매개변수를 배열에 담아서 넘겨야 함,
+    //그 외 casll과 같음
+    
+    // bind는 함수를 실행 안시키고 내부적으로 this 값과 매개변수가 세팅된 함수를 만들어서
+    // 함수(포인터)를 되돌려줌
+    console.log(fThis.bind(document, "난 ", "HTML 문서"))
+    /*
+    fThis();
+    
+    //참조(Reference)로 메소드 추가
+    sujin.msg = fThis;
+    
+    //this 가 가리키는 값이 달라짐
+    //개발자들이 반발
+    sujin.msg();
+
+    //위에 tThis()는 아래와 같다.
+    //전역함수 선언은 window 객체에 메소드를 추가하는 것과 같다!
+    /*
+    window.fThis = function(){
+    console.log("체킁" , this);
+    }
+    */
+
+    // window.fThis();
+
+    //아래 변수를 선언하는 방법 두가지는 사실 같은 의미임
+    // var myName = "이수정";
+    window.myName = "이수정";
+
+    // 아래 두개는 같은 의미임
+    // alert(myName);
+    // alert(window.myName);
+    // let 과 const는 기존 var와는 저장되는 context가 다름
+
+    let myName2 = "유선영 디버깅 못함";
+    // alert(window.myName2);
+
+
+</script>
